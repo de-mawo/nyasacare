@@ -9,6 +9,7 @@ sudo chown prince:admin templates/index.html
 
 #### Avoid typing sudo everytime 
 - sudo chown username folder_you_want_to_work_on
+- sudo chown -R your_username /nyasacare
 
 ### Installing Postgresql
 - <a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-database"> On WSL/ Ubuntu </a>
