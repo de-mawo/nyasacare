@@ -1,8 +1,9 @@
 # Notes
 
 #### Flask Project Folder Structure Layout
-- <a href="https://flask.palletsprojects.com/en/2.3.x/tutorial/layout/"> Major Project Layout </a> 
+- <a href="https://flask.palletsprojects.com/en/2.3.x/tutorial/layout/"> Small Project Layout </a> 
 - <a href="https://python-adv-web-apps.readthedocs.io/en/latest/flask3.html#folder-structure-for-a-flask-app">Medium Project Layout  </a>
+- <a href="https://www.digitalocean.com/community/tutorials/how-to-structure-a-large-flask-application-with-flask-blueprints-and-flask-sqlalchemy"> Large Project Layout </a>
 
 #### File permissions to save a File
 sudo chown prince:admin templates/index.html     
