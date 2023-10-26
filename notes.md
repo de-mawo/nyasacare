@@ -14,3 +14,10 @@ sudo chown prince:admin templates/index.html
 
 ### Installing Postgresql
 - <a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-database"> On WSL/ Ubuntu </a>
+
+#### To add uuid functionality to the ```id``` Column of every model
+- Connect to your PostgreSQL database: You can do this using the psql
+- Enable the uuid-ossp extension: Run the following SQL command to enable the extension:
+```CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; ```
+- Verify that the extension is enabled: You can check if the extension is enabled by running the following command:
+```SELECT * FROM pg_extension WHERE extname = 'uuid-ossp'; ```

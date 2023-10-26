@@ -22,9 +22,12 @@ export DATABASE_URI="postgresql://user:pass@host:port/demo_db"
 3.  Run the application: ``` flask run```
 
 ### Folder Structure
+
 ```
 nyasacare
 ├─ .gitignore
+├─ .vscode
+│  └─ settings.json
 ├─ README.md
 ├─ app
 │  ├─ __init__.py
@@ -34,6 +37,7 @@ nyasacare
 │  │  ├─ __init__.py
 │  │  └─ routes.py
 │  ├─ models
+│  │  ├─ __init__.py
 │  │  ├─ base_model.py
 │  │  └─ user.py
 │  ├─ provider
@@ -46,6 +50,7 @@ nyasacare
 │  └─ user
 │     ├─ __init__.py
 │     └─ routes.py
+├─ app.db
 ├─ config.py
 ├─ notes.md
 └─ tests

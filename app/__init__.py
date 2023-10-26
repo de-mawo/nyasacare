@@ -23,6 +23,11 @@ def create_app(config_class=Config):
         # Add other model imports here
 
         # Create the database tables
+        print('Creating tables')
         db.create_all()
+        
+        # Confirm that tables have been created
+        print("Database tables have been created.") 
+        print(Config.SQLALCHEMY_DATABASE_URI)     
 
     return app

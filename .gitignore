@@ -5,7 +5,8 @@ __pycache__/
 
 # C extensions
 *.so
-
+# Environment variables 
+.env
 # Distribution / packaging
 .Python
 build/
@@ -97,3 +98,4 @@ ENV/
 
 # mypy
 .mypy_cache/
+
