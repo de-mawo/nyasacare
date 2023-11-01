@@ -1,6 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 body {
+  padding: 0;
+  margin: 0;
   font-family: "Lato", sans-serif;
   font-family: "Manrope", sans-serif;
+}
+
+/* NAVBAR SECTION  */
+
+
+.hero_section{
+  height:550px;
+  background-image:url('https://res.cloudinary.com/demawo/image/upload/v1698828855/nurse_tbtv84.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero_section .overlay{
+  background-color:#cbd5e1;
+  position:absolute;
+  height:100%;
+  width:100%;
+  z-index:1;
+  left:0;
+  right:0;
+  top:0;
+  opacity:0.5;
+}
+.hero_section .content{
+  color: #0f172a;
+  z-index:2;
+  text-align:center;
+}
+
+/* FOOTER SECTION  */
+
+footer ul li a{
+  color: #475569;
+  font-size: 20px;
 }
