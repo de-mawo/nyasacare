@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero_section">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1>An easy way to a health lifestyle</h1>
+        <p>Discover and book health professionals near you </p>
+    </div>
+</section >
+
+<section class="container my-5">
+
+    <div class="text-center my-5">
+        <h2>Health Professionals Near you</h2>
+    </div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3	row-cols-xl-4 g-4">
+    <div class="col">
+        <div class="card">
+            <img src="{{url_for('static', filename='img/doc1.jpg')}}" class="card-img-top" alt="doc">
+            <div class="card-body">
+                <h5 class="card-title">Dr Mathew </h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+                    <a href="">View Doc</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+  
+</section>
+
+{% endblock content %}
