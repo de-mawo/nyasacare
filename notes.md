@@ -15,9 +15,7 @@ sudo chown prince:admin templates/index.html
 ### Installing Postgresql
 - <a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-database"> On WSL/ Ubuntu </a>
 
-#### To add uuid functionality to the ```id``` Column of every model
-- Connect to your PostgreSQL database: You can do this using the psql
-- Enable the uuid-ossp extension: Run the following SQL command to enable the extension:
-```CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; ```
-- Verify that the extension is enabled: You can check if the extension is enabled by running the following command:
-```SELECT * FROM pg_extension WHERE extname = 'uuid-ossp'; ```
+
+#### Other Learning Resources
+<a href="https://stackabuse.com/using-sqlalchemy-with-flask-and-postgresql/">Using SQLAlchemy with Flask and PostgreSQL </a>
+<a href="https://medium.com/@yahiaqous/how-to-build-a-crud-api-using-python-flask-and-sqlalchemy-orm-with-postgresql-7869517f8930">How to build a CRUD API using Python Flask and SQLAlchemy ORM with PostgreSQL </a>
