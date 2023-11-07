@@ -22,17 +22,10 @@ def create_app(config_class=Config):
     from app.user import bp as user_bp
 
     app.register_blueprint(user_bp, url_prefix="/user")
+    
+    from app.admin import bp as admin_bp
+    app.register_blueprint(admin_bp, url_prefix="/admin")
 
-    # with app.app_context():
-    #     from app.models.user import User
-    #     # Add other model imports here
 
-    #     # Create the database tables
-    print("Creating tables")
-    #     db.create_all()
-
-    # Confirm that tables have been created
-    print("Database tables have been created.")
-    print(Config.SQLALCHEMY_DATABASE_URI)
 
     return app

@@ -1,6 +1,7 @@
 from flask import render_template, request, url_for
-from app.main import bp
-from app.user.controllers import create_user, list_all_users
+from app.main import auth_forms, bp
+from app.main.auth_forms import RegistrationForm, LoginForm
+
 
 
 providers = [
@@ -61,19 +62,14 @@ def index():
 
 @bp.route('/login')
 def login():
-    return render_template('login.html')
+    auth_form = LoginForm()
+    return render_template('login.html', title="Login", auth_form=auth_form)
 
 
 @bp.route('/register')
 def register():
-    return render_template('register.html')
+    auth_form = RegistrationForm()
+    return render_template('register.html', title="Register" , auth_form=auth_form)
 
 
-@bp.route('/admin/users', methods=['GET', 'POST'])
-def all_users():
-    if request.method == 'GET':
-        return list_all_users()
-    if request.method == 'POST':
-        return create_user()
-    else:
-        return "Method is Not Allowed"
+

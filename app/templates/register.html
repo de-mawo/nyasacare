@@ -6,10 +6,11 @@
         <div class="card border-0 shadow rounded-3 my-5">
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 fw-light fs-5">Sign Up</h5>
-            <form>
+            <form method="post">
+              {{ auth_form.hidden_tag()}}
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+                {{ auth_form.name.label}}
+                {{ auth_form.name(class_="form-contrl")}}
               </div>
               <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
