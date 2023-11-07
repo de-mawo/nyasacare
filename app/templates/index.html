@@ -16,17 +16,20 @@
     </div>
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3	row-cols-xl-4 g-4">
+    {% for provider in providers %}
     <div class="col">
         <div class="card">
-            <img src="{{url_for('static', filename='img/doc1.jpg')}}" class="card-img-top" alt="doc">
+            <img src="{{url_for('static', filename='img/' + provider.image)}}" class="card-img-top img-thumbnail" alt="doc">
+
             <div class="card-body">
-                <h5 class="card-title">Dr Mathew </h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                    <a href="">View Doc</a>
+                <h5 class="card-title">{{ provider.name }} </h5>
+                <p class="card-text">{{provider.speciality}} </p>
+                <p class="card-text"> <i class="ri-map-pin-fill"></i> {{provider.area}} </p>
+                    <a href="">View More</a>
             </div>
         </div>
     </div>
+    {% endfor %}
     
 </div>
 
