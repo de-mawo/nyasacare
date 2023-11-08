@@ -13,6 +13,7 @@
 - Flask-Migrate 
 - flask_validator 
 - psycopg2-binary
+- email-validator
 
 
 ### Setup

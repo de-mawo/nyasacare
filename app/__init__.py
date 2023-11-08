@@ -25,7 +25,9 @@ def create_app(config_class=Config):
     
     from app.admin import bp as admin_bp
     app.register_blueprint(admin_bp, url_prefix="/admin")
-
-
+    
+    if __name__ == '__main__':
+        app.run(debug=True)    
 
     return app
+

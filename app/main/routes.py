@@ -1,7 +1,6 @@
-from flask import render_template, request, url_for
-from app.main import auth_forms, bp
-from app.main.auth_forms import RegistrationForm, LoginForm
-
+from flask import redirect, render_template, flash, url_for
+from app.main import bp
+from app.main.forms import RegistrationForm, LoginForm
 
 
 providers = [
@@ -60,16 +59,25 @@ def index():
     return render_template('index.html', providers=providers)
 
 
-@bp.route('/login')
+@bp.route('/login', methods=['GET', 'POST'])
 def login():
-    auth_form = LoginForm()
-    return render_template('login.html', title="Login", auth_form=auth_form)
+    form = LoginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'admin@nyasacare.com' and form.password.data == 'password':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('main.index'))
+        else:
+            flash('Login Unsuccessful. Please check email and password', 'danger')
+    return render_template('login.html', title="Login", form=form)
 
 
-@bp.route('/register')
+@bp.route('/register', methods=['GET', 'POST'])
 def register():
-    auth_form = RegistrationForm()
-    return render_template('register.html', title="Register" , auth_form=auth_form)
-
-
-
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        if form.email.data:
+            flash('Registration Successful', 'success')
+        return redirect(url_for('main.login'))
+    else:
+        flash('Registration Unsuccessful', 'danger')
+    return render_template('register.html', title="Register", form=form)
