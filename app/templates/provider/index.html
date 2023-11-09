@@ -1,13 +1,13 @@
-{% extends "<template>base.html" %}
+{% extends "base.html" %}
 {% block content %}
 
 <!-- Provider Profile -->
     <section id="Profile" class="mt-5 container">
         <div class="card mx-auto" style="max-width: 22rem;">
-            <img src="{{ url_for('static', filename='img/doc' + providers['image'] + '.jpg') }}" class="card-img-top mt-3 img-fluid" alt="Profile Picture">
+            <img src="{{url_for('static', filename='img/doc6.jpg')}}" class="card-img-top mt-3 img-fluid" alt="Profile Picture">
             <div class="card-body">
-                <h5 class="card-title">{{providers.name}}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{providers.speciality}}</h6>
+                <h5 class="card-title">Dr Ash </h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary"> </h6>
             </div>
             <!-- Star Rating -->
             <div class="pb-2">
@@ -29,7 +29,7 @@
             <!-- Provider Location -->
             <div class="py-2 my-4">
                 <h5 class="fw-semibold">Location</h5>
-                <p class="card-text mx-3">{{providers.area}}</p>
+                <p class="card-text mx-3"> </p>
                 <!-- Google Map -->
                 <div class="ratio ratio-4x3">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61952.58494609549!2d33.74841337910156!3d-13.956428900000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d34676b31a5f%3A0xda03651e94856d3d!2sCity%20Centre%20Clinic!5e0!3m2!1sen!2smw!4v1699548123471!5m2!1sen!2smw" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
@@ -70,9 +70,9 @@
                     <div class="col-12">
                         <select class="form-select">
                             <option selected>Purpose Of Appointment</option>
-                            <option value="1">{{providers.speciality}}</option>
-                            <option value="2">{{providers.speciality}}</option>
-                            <option value="3">{{providers.speciality}}</option>
+                            <option value="1"> </option>
+                            <option value="2"> </option>
+                            <option value="3">  </option>
                         </select>
                     </div>
                     <div class="col-12">

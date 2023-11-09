@@ -69,7 +69,9 @@ $ flask db upgrade $
 
 ```
 nyasacare
-├─ .git
+├─ .gitignore
+├─ .vscode
+│  └─ settings.json
 ├─ README.md
 ├─ app
 │  ├─ __init__.py
@@ -95,6 +97,7 @@ nyasacare
 │  │  │  ├─ doc6.jpg
 │  │  │  ├─ doc7.jpg
 │  │  │  └─ nurse.jpg
+│  │  ├─ index.css
 │  │  ├─ responsive.css
 │  │  └─ style.css
 │  ├─ templates
@@ -107,6 +110,7 @@ nyasacare
 │  │  │  └─ index.html
 │  │  ├─ register.html
 │  │  └─ user
+│  │     ├─ history.html
 │  │     ├─ index.html
 │  │     └─ layout.html
 │  └─ user
@@ -116,6 +120,12 @@ nyasacare
 ├─ app.db
 ├─ config.py
 ├─ migrations
+│  ├─ README
+│  ├─ alembic.ini
+│  ├─ env.py
+│  ├─ script.py.mako
+│  └─ versions
+│     └─ 024f068c9445_.py
 ├─ notes.md
 ├─ run.py
 └─ tests
