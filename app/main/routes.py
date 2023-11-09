@@ -1,5 +1,5 @@
 from flask import redirect, render_template, flash, request, url_for, Blueprint
-from flask_login import login_user
+from flask_login import login_user, logout_user
 from app.main.forms import RegistrationForm, LoginForm
 from app.extensions import  bcrypt
 
@@ -95,3 +95,8 @@ def register():
     else:
         flash('Registration Unsuccessful', 'danger')
     return render_template('register.html', title="Register", form=form)
+
+@main.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))

@@ -35,12 +35,19 @@
 
 ### How to run the app
 
+### Start the Database if running locally or on custom servers
+
+- `sudo service postgresql status` for checking the status of your database.
+- `sudo service postgresql start` to start running your database.
+- `sudo service postgresql stop` to stop running your database.
+
 #### Create Tables in your database
 
 ###### your might need to Delete the migrations folder first
 $ flask db init 
 $ flask db migrate
 $ flask db upgrade $
+
 
 #### Run using the run.py file
 - Simply type `python3 run.py` 
@@ -59,36 +66,58 @@ $ flask db upgrade $
 
 ### Folder Structure
 
+
 ```
 nyasacare
-├─ .gitignore
-├─ .vscode
-│  └─ settings.json
+├─ .git
 ├─ README.md
 ├─ app
 │  ├─ __init__.py
 │  ├─ admin
+│  │  ├─ __init__.py
+│  │  └─ routes.py
 │  ├─ extensions.py
 │  ├─ main
 │  │  ├─ __init__.py
+│  │  ├─ forms.py
 │  │  └─ routes.py
 │  ├─ models
 │  │  ├─ __init__.py
-│  │  ├─ base_model.py
 │  │  └─ user.py
 │  ├─ provider
 │  ├─ static
+│  │  ├─ img
+│  │  │  ├─ doc1.jpg
+│  │  │  ├─ doc2.jpg
+│  │  │  ├─ doc3.jpg
+│  │  │  ├─ doc4.jpg
+│  │  │  ├─ doc5.jpg
+│  │  │  ├─ doc6.jpg
+│  │  │  ├─ doc7.jpg
+│  │  │  └─ nurse.jpg
 │  │  ├─ responsive.css
 │  │  └─ style.css
 │  ├─ templates
+│  │  ├─ admin
+│  │  │  └─ index.html
+│  │  ├─ base.html
 │  │  ├─ index.html
-│  │  └─ login.html
+│  │  ├─ login.html
+│  │  ├─ provider
+│  │  │  └─ index.html
+│  │  ├─ register.html
+│  │  └─ user
+│  │     ├─ index.html
+│  │     └─ layout.html
 │  └─ user
 │     ├─ __init__.py
+│     ├─ controllers.py
 │     └─ routes.py
 ├─ app.db
 ├─ config.py
+├─ migrations
 ├─ notes.md
+├─ run.py
 └─ tests
 
 ```
