@@ -49,6 +49,20 @@
             </div>
 
             <div class="form-floating mb-3">
+              {% if form.phone.errors %}
+              {{ form.phone(class="form-control is-invalid", id="floatingPhone") }}
+              <div class="invalid-feedback">
+                {% for error in form.phone.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% else %}
+              {{ form.phone(class="form-control", id="floatingPhone") }}
+              {% endif %}
+              {{ form.phone.label(for="floatingPhone") }}
+            </div>
+
+            <div class="form-floating mb-3">
               {% if form.password.errors %}
               {{ form.password(class="form-control is-invalid", id="floatingPassword") }}
               <div class="invalid-feedback">
@@ -60,7 +74,7 @@
               {{ form.password(class="form-control", id="floatingPassword") }}
               {% endif %}
               {{ form.password.label(for="floatingPassword") }}
-            </div>
+            </div> 
 
             <div class="form-floating mb-3">
               {% if form.confirm_password.errors %}
@@ -71,7 +85,7 @@
                 {% endfor %}
               </div>
               {% else %}
-              {{ form.confirm_password(class="form-control", id="floatingPassword") }}
+              {{ form.confirm_password(class="form-control", id="floatingConfPassword") }}
               {% endif %}
               {{ form.confirm_password.label(for="floatingConfPassword") }}
             </div>

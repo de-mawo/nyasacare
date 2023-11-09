@@ -1,7 +1,12 @@
-from flask import redirect, render_template, flash, url_for, Blueprint
+from flask import redirect, render_template, flash, request, url_for, Blueprint
+from flask_login import login_user, logout_user
 from app.main.forms import RegistrationForm, LoginForm
+from app.extensions import  bcrypt
 
 from flask import Blueprint
+from app.models.user import User
+
+from app.user.controllers import create_user
 
 main = Blueprint('main', __name__)
 
@@ -69,21 +74,29 @@ def provider(provider):
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == 'admin@nyasacare.com' and form.password.data == 'password':
-            flash('You have been logged in!', 'success')
-            return redirect(url_for('main.index'))
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('main.index'))
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', title="Login", form=form)
-
+ 
 
 @main.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        if form.email.data:
+        res = create_user(form)
+        if res:
             flash('Registration Successful', 'success')
-        return redirect(url_for('main.login'))
+            return redirect(url_for('main.login'))
     else:
         flash('Registration Unsuccessful', 'danger')
     return render_template('register.html', title="Register", form=form)
+
+@main.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))

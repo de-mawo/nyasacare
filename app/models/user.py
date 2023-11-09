@@ -1,10 +1,14 @@
 from sqlalchemy import inspect
 from datetime import datetime
-
+from app.extensions import login_manager
+from flask_login import UserMixin
 from app.extensions import db
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.String(50), primary_key=True,
                    unique=True, nullable=False)
