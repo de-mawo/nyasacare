@@ -1,16 +1,15 @@
-from app.admin import bp
-
-
-from flask import render_template, request
+from flask import Blueprint, render_template, request
 from app.user.controllers import create_user, list_all_users
 
+admin = Blueprint('admin', __name__)
 
-@bp.route('/')
+
+@admin.route('/')
 def admin():
     return render_template('admin/index.html')
 
 
-@bp.route('/admin/users', methods=['GET', 'POST'])
+@admin.route('/users', methods=['GET', 'POST'])
 def all_users():
     if request.method == 'GET':
         return list_all_users()

@@ -14,6 +14,7 @@
 - flask_validator 
 - psycopg2-binary
 - email-validator
+- Flask-Bcrypt
 
 
 ### Setup
@@ -35,16 +36,26 @@
 ### How to run the app
 
 #### Create Tables in your database
+
 ###### your might need to Delete the migrations folder first
 $ flask db init 
 $ flask db migrate
-$ flask db upgrade
+$ flask db upgrade $
+
+#### Run using the run.py file
+- Simply type `python3 run.py` 
+
+
+#### Run using the create_app
 
 1. Set the app package (because it has __init__.py) as the place where Flask should look for the create_app() factory function:  ```export FLASK_APP=app ```
 2. Set the FLASK_ENV environment variable to run the application in development mode: ```export FLASK_ENV=development ```
 3.  Run the application: ``` flask run```
 4.  To Run the Server with specific host and port  ```flask run -h HOSTNAME -p PORTNUMBER``` e.g flask run -h 127.0.0.1 -p 5001
 5. To Run the Server with Automatic Restart When Changes Occur ```FLASK_DEBUG=1 flask run```  or simply `flask --debug run`
+
+
+
 
 ### Folder Structure
 

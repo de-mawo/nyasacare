@@ -1,7 +1,9 @@
-from flask import redirect, render_template, flash, url_for
-from app.main import bp
+from flask import redirect, render_template, flash, url_for, Blueprint
 from app.main.forms import RegistrationForm, LoginForm
 
+from flask import Blueprint
+
+main = Blueprint('main', __name__)
 
 providers = [
     {
@@ -54,12 +56,16 @@ providers = [
 ]
 
 
-@bp.route('/')
+@main.route('/')
 def index():
     return render_template('index.html', providers=providers)
 
+@main.route('/provider/<provider>')
+def provider(provider):
+    return render_template('provider/index.html')
 
-@bp.route('/login', methods=['GET', 'POST'])
+
+@main.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -71,7 +77,7 @@ def login():
     return render_template('login.html', title="Login", form=form)
 
 
-@bp.route('/register', methods=['GET', 'POST'])
+@main.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():

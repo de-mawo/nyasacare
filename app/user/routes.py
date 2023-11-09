@@ -1,10 +1,13 @@
-from flask import render_template
-from app.user import bp
+from flask import Blueprint, render_template
 
-@bp.route('/')
+
+user = Blueprint('user', __name__)
+
+
+@user.route('/')
 def index():
     return render_template('user/index.html')
 
-@bp.route('/history/')
+@user.route('/history/')
 def categories():
     return render_template('user/history.html')

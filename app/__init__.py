@@ -1,9 +1,8 @@
 from flask import Flask
 from config import Config
 from app.extensions import db
-from flask_migrate import Migrate
-
-migrate = Migrate()
+from app.extensions import migrate
+from app.extensions import bcrypt
 
 
 def create_app(config_class=Config):
@@ -13,21 +12,20 @@ def create_app(config_class=Config):
     # Initialize Flask extensions
     db.init_app(app)
     migrate.init_app(app, db)
+    bcrypt.init_app(app)
 
     # Register blueprints
-    from app.main import bp as main_bp
+    from app.main.routes import  main
+    from app.user.routes import user
+    # from app.admin.routes import  admin
 
-    app.register_blueprint(main_bp)
-
-    from app.user import bp as user_bp
-
-    app.register_blueprint(user_bp, url_prefix="/user")
-    
-    from app.admin import bp as admin_bp
-    app.register_blueprint(admin_bp, url_prefix="/admin")
-    
-    if __name__ == '__main__':
-        app.run(debug=True)    
+    app.register_blueprint(main)
+    app.register_blueprint(user, url_prefix="/user")
+    # app.register_blueprint(admin, url_prefix="/admin")
 
     return app
+
+    
+       
+
 
