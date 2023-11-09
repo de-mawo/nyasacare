@@ -1,8 +1,139 @@
-{% extends "user/layout.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <!-- Include Bootstrap CSS (you may need to update the link) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.3/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
 
-<section>
-    <h1>This is A Private User Route : </h1>
-</section>
+        .container {
+            padding-top: 20px;
+        }
 
-{% endblock content %}
+        .row {
+            margin-right: 0;
+        }
+
+        .sidebar {
+            background-color: #333;
+            color: #fff;
+            padding: 0;
+        }
+
+        .nav-item {
+            padding: 10px 0;
+        }
+
+        .nav-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-item a:hover {
+            color: #007BFF;
+        }
+
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .booking-form {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .appointment-list li, .doctor-history li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .appointment-list li:last-child, .doctor-history li:last-child {
+            border-bottom: none;
+        }
+
+        .add-appointment-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .add-appointment-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">User Dashboard</h1>
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-sm-4 col-12 sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#appointments">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#doctor-history">Doctor History</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Content Section -->
+            <div class="col-md-9 col-sm-8 col-12 content">
+                <div class="tab-content">
+                    <!-- Appointments Tab -->
+                    <div id="appointments" class="tab-pane active">
+                        <h2>Manage Appointments</h2>
+                        <button class="add-appointment-button" id="addAppointmentButton">Add Appointment</button>
+                        <ul class="appointment-list">
+                            <li>Appointment 1: Dr. Smith on 2023-11-15 at 10:00 AM</li>
+                            <li>Appointment 2: Dr. Jones on 2023-11-20 at 2:30 PM</li>
+                            <!-- Add more appointments as needed -->
+                        </ul>
+                    </div>
+
+                    <!-- Doctor History Tab -->
+                    <div id="doctor-history" class="tab-pane">
+                        <h2>Doctor History</h2>
+                        <ul class="doctor-history">
+                            <li>Dr. Smith - Visited on 2023-10-01</li>
+                            <li>Dr. Jones - Visited on 2023-09-15</li>
+                            <!-- Add more doctor history entries as needed -->
+                        </ul>
+                    </div>
+                </div>
+                <!-- Booking Form Section -->
+                <div class="booking-form">
+                    <h2>Book an Appointment</h2>
+                    <!-- Add your booking form HTML here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap and jQuery JS (you may need to update the links) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.3/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('addAppointmentButton').addEventListener('click', function() {
+            // Implement the logic to open the booking form or navigate to the booking page.
+            // You can use JavaScript to show a modal or redirect to the booking page.
+            alert('Implement the logic to add a new appointment here.');
+        });
+    </script>
+</body>
+</html>
+
