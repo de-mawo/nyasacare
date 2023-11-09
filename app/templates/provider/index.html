@@ -1,9 +1,92 @@
-{% extends "base.html" %}
+{% extends "<template>base.html" %}
 {% block content %}
 
-<section>
-    <h1>This is the Provider Public Route </h1>
-</section>
+<!-- Provider Profile -->
+    <section id="Profile" class="mt-5 container">
+        <div class="card mx-auto" style="max-width: 22rem;">
+            <img src="{{ url_for('static', filename='img/doc' + providers['image'] + '.jpg') }}" class="card-img-top mt-3 img-fluid" alt="Profile Picture">
+            <div class="card-body">
+                <h5 class="card-title">{{providers.name}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{providers.speciality}}</h6>
+            </div>
+            <!-- Star Rating -->
+            <div class="pb-2">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+            </div>
+            <!-- Book Button -->
+            <div class="mt-3">
+                <a href="#booking-form" class="btn btn-primary mb-4">Book Appointment</a>
+            </div>
+            <!-- About -->
+            <div class="py-2">
+                <h5 class="fw-semibold">About</h5>
+                <p class="card-text mx-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <!-- Provider Location -->
+            <div class="py-2 my-4">
+                <h5 class="fw-semibold">Location</h5>
+                <p class="card-text mx-3">{{providers.area}}</p>
+                <!-- Google Map -->
+                <div class="ratio ratio-4x3">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61952.58494609549!2d33.74841337910156!3d-13.956428900000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d34676b31a5f%3A0xda03651e94856d3d!2sCity%20Centre%20Clinic!5e0!3m2!1sen!2smw!4v1699548123471!5m2!1sen!2smw" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+                </div>
+            </div>
+        </div>
+    </section>
 
+<!--Booking Form-->
+    <section id="booking-form" class="mt-5" >
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-6 offset-md-3 border p-4 shadow bg-light">
+            <div class="col-12">
+                <h3 class="fw-bold text-primary fs-4 mb-4 text-center">Appointment form</h3>
+            </div>
+            <!--Add form action (/submit method="POST")-->
+            <form action="">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="First Name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Last Name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="tel" class="form-control" placeholder="Phone Number">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" placeholder="Enter Email">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="date" class="form-control" placeholder="Enter Date">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="time" class="form-control" placeholder="Enter Email">
+                    </div>
+                    <div class="col-12">
+                        <select class="form-select">
+                            <option selected>Purpose Of Appointment</option>
+                            <option value="1">{{providers.speciality}}</option>
+                            <option value="2">{{providers.speciality}}</option>
+                            <option value="3">{{providers.speciality}}</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control" placeholder="Message"></textarea>
+                    </div>
+                    <div class="col-12 mt-5">                        
+                        <button type="submit" class="btn btn-primary float-end">Book Appointment</button>
+                        <button type="button" class="btn btn-outline-secondary float-end me-2">Cancel</button>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
 {% endblock content %}
