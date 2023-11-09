@@ -1,129 +1,137 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Doctor Appointments</title>
+    <title>User Dashboard</title>
     <!-- Include Bootstrap CSS (you may need to update the link) -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.3/css/bootstrap.min.css">
-    <!-- Include FullCalendar CSS and theme (you may need to update the links) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.9.0/main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            padding-top: 20px;
+        }
+
+        .row {
+            margin-right: 0;
+        }
+
+        .sidebar {
+            background-color: #333;
+            color: #fff;
+            padding: 0;
+        }
+
+        .nav-item {
+            padding: 10px 0;
+        }
+
+        .nav-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-item a:hover {
+            color: #007BFF;
+        }
+
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .booking-form {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .appointment-list li, .doctor-history li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .appointment-list li:last-child, .doctor-history li:last-child {
+            border-bottom: none;
+        }
+
+        .add-appointment-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .add-appointment-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">
+        <h1 class="text-center">User Dashboard</h1>
         <div class="row">
             <!-- Sidebar -->
-            <nav class="col-md-2 col-sm-3 d-md-block bg-dark sidebar">
-                <div class="position-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                <i class="fa fa-home" aria-hidden="true"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-tasks" aria-hidden="true"></i> Appointments
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-user" aria-hidden="true"></i> Profile
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <nav class="col-md-3 col-sm-4 col-12 sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#appointments">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#doctor-history">Doctor History</a>
+                    </li>
+                </ul>
             </nav>
-            <!-- Main Content -->
-            <main class="col-md-10 ms-sm-auto col-lg-10 px-md-4">
-                <header class="py-2">
-                    <div class="container-fluid">
-                        <div class="d-flex justify-content-between">
-                            <h1>Hello, JS</h1>
-                            <div class="header-rightside">
-                                <ul class="list-inline header-top pull-right">
-                                    <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-                                    <li>
-                                        <a href="#" class="icon-info">
-                                            <i class="fa fa-bell" aria-hidden="true"></i>
-                                            <span class="badge badge-primary">3</span>
-                                        </a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <img src="http://jskrishna.com/work/merkury/images/user-pic.jpg" alt="user">
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <div class="navbar-content">
-                                                    <span>JS Krishna</span>
-                                                    <p class="text-muted small">
-                                                        me@jskrishna.com
-                                                    </p>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a href="#" class="btn btn-sm btn-primary">View Profile</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+            <!-- Content Section -->
+            <div class="col-md-9 col-sm-8 col-12 content">
+                <div class="tab-content">
+                    <!-- Appointments Tab -->
+                    <div id="appointments" class="tab-pane active">
+                        <h2>Manage Appointments</h2>
+                        <button class="add-appointment-button" id="addAppointmentButton">Add Appointment</button>
+                        <ul class="appointment-list">
+                            <li>Appointment 1: Dr. Smith on 2023-11-15 at 10:00 AM</li>
+                            <li>Appointment 2: Dr. Jones on 2023-11-20 at 2:30 PM</li>
+                            <!-- Add more appointments as needed -->
+                        </ul>
                     </div>
-                </header>
-                <div class="user-dashboard py-3">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-5 col-sm-5 col-12">
-                                <div class="sales">
-                                    <h2>Your Doctor Appointments</h2>
-                                    <!-- FullCalendar container -->
-                                    <div id="calendar"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-sm-7 col-12">
-                                <div class="sales report">
-                                    <h2>Appointment History</h2>
-                                    <!-- Display previous and upcoming appointments here -->
-                                    <ul>
-                                        <li><strong>Dr. Smith</strong> - 2023-11-15, 10:00 AM, Hospital Name</li>
-                                        <li><strong>Dr. Jones</strong> - 2023-11-20, 2:30 PM, Clinic Name</li>
-                                        <!-- Add more appointments as needed -->
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+
+                    <!-- Doctor History Tab -->
+                    <div id="doctor-history" class="tab-pane">
+                        <h2>Doctor History</h2>
+                        <ul class="doctor-history">
+                            <li>Dr. Smith - Visited on 2023-10-01</li>
+                            <li>Dr. Jones - Visited on 2023-09-15</li>
+                            <!-- Add more doctor history entries as needed -->
+                        </ul>
                     </div>
                 </div>
-            </main>
+                <!-- Booking Form Section -->
+                <div class="booking-form">
+                    <h2>Book an Appointment</h2>
+                    <!-- Add your booking form HTML here -->
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Include Bootstrap, jQuery, and FullCalendar JS (you may need to update the links) -->
+    <!-- Include Bootstrap and jQuery JS (you may need to update the links) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.3/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.9.0/main.js"></script>
-
-    <!-- Initialize FullCalendar -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth', // Display month view by default
-                events: [
-                    // Add your appointment events here (start, end, title, etc.)
-                    {
-                        start: '2023-11-15T10:00:00',
-                        end: '2023-11-15T11:00:00',
-                        title: 'Dr. Smith at Hospital Name'
-                    },
-                    {
-                        start: '2023-11-20T14:30:00',
-                        end: '2023-11-20T15:30:00',
-                        title: 'Dr. Jones at Clinic Name'
-                    },
-                    // Add more appointment events as needed
-                ]
-            });
-            calendar.render();
+        document.getElementById('addAppointmentButton').addEventListener('click', function() {
+            // Implement the logic to open the booking form or navigate to the booking page.
+            // You can use JavaScript to show a modal or redirect to the booking page.
+            alert('Implement the logic to add a new appointment here.');
         });
     </script>
 </body>
