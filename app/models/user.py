@@ -9,6 +9,7 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 class User(db.Model, UserMixin):
+    """ User Class for registerring users"""
     __tablename__ = 'users'
     id = db.Column(db.String(50), primary_key=True,
                    unique=True, nullable=False)

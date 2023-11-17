@@ -4,7 +4,10 @@
 <p> Nyasa Care is a multi-user platform where health service providers list their services and allow members of the public to book for their services. </p>
 <p>This project was tested on Ubuntu 20.04</p>
 
-
+### Authors
+1. Prince Mawonde
+2. Junior Sibusiso Ngondo
+3. Michael Kazembe
 
 ### Packages
 - Flask
@@ -15,6 +18,8 @@
 - psycopg2-binary
 - email-validator
 - Flask-Bcrypt
+- Flask-Login
+- Flask-wtf
 
 
 ### Setup

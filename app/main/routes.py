@@ -63,15 +63,18 @@ providers = [
 
 @main.route('/')
 def index():
+    """ Landing page route"""
     return render_template('index.html', providers=providers)
 
 @main.route('/provider/<provider>')
 def provider(provider):
+    """Provider main route"""
     return render_template('provider/index.html')
 
 
 @main.route('/login', methods=['GET', 'POST'])
 def login():
+    """User Login Route"""
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -86,6 +89,7 @@ def login():
 
 @main.route('/register', methods=['GET', 'POST'])
 def register():
+    """ User registration route"""
     form = RegistrationForm()
     if form.validate_on_submit():
         res = create_user(form)
@@ -98,5 +102,6 @@ def register():
 
 @main.route("/logout")
 def logout():
+    """ User Logout route"""
     logout_user()
     return redirect(url_for('main.index'))

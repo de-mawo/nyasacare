@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo
 from app.models.user import User
 
 class RegistrationForm(FlaskForm):
+    """Registration Class for regular users"""
     name = StringField('Name', validators=[DataRequired(), Length(min=2)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     phone = StringField('Phone', validators=[DataRequired(), Length(min=2)])
@@ -19,6 +20,7 @@ class RegistrationForm(FlaskForm):
     
 
 class LoginForm(FlaskForm):
+    """ Login Class for regular users"""
     email = StringField('Email',
                         validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])

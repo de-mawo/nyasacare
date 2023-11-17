@@ -1,3 +1,5 @@
+""" Main entry file to the app"""
+
 from flask import Flask
 from config import Config
 from app.extensions import db
